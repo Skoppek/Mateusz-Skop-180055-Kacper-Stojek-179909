@@ -1,6 +1,8 @@
 # Mateusz-Skop-180055-Kacper-Stojek-179909
 Projekt 4 - Techniki programowania
 
+Mateusz Skop 180055 ACiR1, Kacper Stojek 179909 ACiR1
+
 1. Informacje wstępne
 
   - Projekt został wykonany na bazie przykładowego programu zamieszczonego na platformie eNauczanie.
