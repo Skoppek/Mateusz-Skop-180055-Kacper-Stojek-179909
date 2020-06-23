@@ -45,7 +45,7 @@ const int spl_btn_width = 75;
 const int ground = wnd_height - btn_height;
 
 const double pi = 3.1415926535;
-const double step = 0.0087266462; //po³owa stopnia
+const double step = 0.0087266462; //poÂ³owa stopnia
 const double initPos = - pi / 2;
 
 const int acceleration = 1;
@@ -143,7 +143,7 @@ void resetBoxesPosition()
 	red_box.grip_x = btn_width + 7 * spl_btn_width;
 	red_box.grip_y = ground - btn_height;
 
-	SetWindowText(hwndGrabLose, L"CHWYÆ");
+	SetWindowText(hwndGrabLose, L"CHWYÃ†");
 }
 
 void createVector()
@@ -350,7 +350,7 @@ void initialPosition(HWND hWnd)
 {
 	if ((alpha >= initPos - step && alpha <= initPos + step && beta >= initPos - step && beta <= initPos + step) && auto_queue.empty())
 	{
-		showText(hwndEventLog, "Zakoñczono pracê.");
+		showText(hwndEventLog, "ZakoÃ±czono pracÃª.");
 		program_state = 0;
 		KillTimer(hWnd, TMR_3);
 		return;
@@ -590,7 +590,6 @@ void resetEverything(HWND hWnd)
 	KillTimer(hWnd, TMR_3);
 	KillTimer(hWnd, TMR_4);
 	control = 0;
-	speed = 1;
 	alpha = initPos;
 	beta = initPos;
 	resetBoxesPosition();
@@ -851,7 +850,7 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
 		NULL);
 
 	hwndButton = CreateWindow(TEXT("button"),
-		TEXT("ODTWÓRZ"),
+		TEXT("ODTWÃ“RZ"),
 		WS_CHILD | WS_VISIBLE | BS_PUSHBUTTON,
 		0, 6 * btn_height,
 		btn_width - 1, btn_height - 1,
@@ -931,7 +930,7 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
 		NULL);
 
 	hwndGrabLose = CreateWindow(TEXT("button"),
-		TEXT("CHWYÆ"),
+		TEXT("CHWYÃ†"),
 		WS_CHILD | WS_VISIBLE | BS_PUSHBUTTON,
 		4 * btn_width, 0,
 		btn_width - 1, 2 * btn_height - 1,
@@ -1124,7 +1123,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 			}
 			else
 			{
-				showText(hwndEventLog, "Nie mo¿na zmieniac prêdkoœci w czasie odtwarzania ruchu lub pracy automatycznej.");
+				showText(hwndEventLog, "Nie moÂ¿na zmieniac prÃªdkoÂœci w czasie odtwarzania ruchu lub pracy automatycznej.");
 			}
 			break;
 		case ID_SECONDSPEED:
@@ -1134,7 +1133,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 			}
 			else
 			{
-				showText(hwndEventLog, "Nie mo¿na zmieniac prêdkoœci w czasie odtwarzania ruchu lub pracy automatycznej.");
+				showText(hwndEventLog, "Nie moÂ¿na zmieniac prÃªdkoÂœci w czasie odtwarzania ruchu lub pracy automatycznej.");
 			}
 			break;
 		case ID_THIRDSPEED:
@@ -1144,7 +1143,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 			}
 			else
 			{
-				showText(hwndEventLog, "Nie mo¿na zmieniac prêdkoœci w czasie odtwarzania ruchu lub pracy automatycznej.");
+				showText(hwndEventLog, "Nie moÂ¿na zmieniac prÃªdkoÂœci w czasie odtwarzania ruchu lub pracy automatycznej.");
 			}
 			break;
 		case ID_FOURTHSPEED:
@@ -1154,7 +1153,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 			}
 			else
 			{
-				showText(hwndEventLog, "Nie mo¿na zmieniac prêdkoœci w czasie odtwarzania ruchu lub pracy automatycznej.");
+				showText(hwndEventLog, "Nie moÂ¿na zmieniac prÃªdkoÂœci w czasie odtwarzania ruchu lub pracy automatycznej.");
 			}
 			break;
 		case ID_FIFTHSPEED:
@@ -1164,7 +1163,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 			}
 			else
 			{
-				showText(hwndEventLog, "Nie mo¿na zmieniac prêdkoœci w czasie odtwarzania ruchu lub pracy automatycznej.");
+				showText(hwndEventLog, "Nie moÂ¿na zmieniac prÃªdkoÂœci w czasie odtwarzania ruchu lub pracy automatycznej.");
 			}
 			break;
 		case ID_RECORD:
@@ -1175,20 +1174,20 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 				beta = initPos;
 				resetBoxesPosition();
 				repaintWindow(hWnd, hdc, ps, &drawArea);
-				showText(hwndEventLog, "Rozpoczêto nagrywanie");
+				showText(hwndEventLog, "RozpoczÃªto nagrywanie");
 			}
 			else if (program_state == 3)
 			{
 				program_state = 0;
-				showText(hwndEventLog, "Zakoñczono nagrywanie");
+				showText(hwndEventLog, "ZakoÃ±czono nagrywanie");
 			}
 			else if (program_state == 2)
 			{
-				showText(hwndEventLog, "Robot jest w trybie automatycznym. Zaczekaj a¿ skoñczy pracê lub wciœnij RESET.");
+				showText(hwndEventLog, "Robot jest w trybie automatycznym. Zaczekaj aÂ¿ skoÃ±czy pracÃª lub wciÂœnij RESET.");
 			}
 			else if (program_state == 4)
 			{
-				showText(hwndEventLog, "Robot odtwarza wczeœniej nagrany ruch. Zaczekaj a¿ skoñczy pracê lub wciœnij RESET.");
+				showText(hwndEventLog, "Robot odtwarza wczeÂœniej nagrany ruch. Zaczekaj aÂ¿ skoÃ±czy pracÃª lub wciÂœnij RESET.");
 			}
 			break;
 		case ID_PLAY:
@@ -1201,7 +1200,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 					repaintWindow(hWnd, hdc, ps, &drawArea);
 					program_state = 4;
 					SetTimer(hWnd, TMR_4, speed, 0);
-					showText(hwndEventLog, "Rozpoczêto odtwarzanie.");
+					showText(hwndEventLog, "RozpoczÃªto odtwarzanie.");
 				}
 				else
 				{
@@ -1210,11 +1209,11 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 			}
 			else if (program_state == 4)
 			{
-				showText(hwndEventLog, "Robot ju¿ odtwarza nagrany ruch.");
+				showText(hwndEventLog, "Robot juÂ¿ odtwarza nagrany ruch.");
 			}
 			else if (program_state == 2)
 			{
-				showText(hwndEventLog, "Robot jest w trybie automatycznym. Zaczekaj a¿ skoñczy pracê lub wciœnij RESET.");
+				showText(hwndEventLog, "Robot jest w trybie automatycznym. Zaczekaj aÂ¿ skoÃ±czy pracÃª lub wciÂœnij RESET.");
 			}
 			break;
 		case ID_AUTO:
@@ -1226,15 +1225,15 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 				repaintWindow(hWnd, hdc, ps, &drawArea);
 				program_state = 2;
 				SetTimer(hWnd, TMR_3, speed, 0);
-				showText(hwndEventLog, "Rozpoczêto sortowanie.");
+				showText(hwndEventLog, "RozpoczÃªto sortowanie.");
 			}
 			else if (program_state == 2)
 			{
-				showText(hwndEventLog, "Robot jest ju¿ w trybie automatycznym.");
+				showText(hwndEventLog, "Robot jest juÂ¿ w trybie automatycznym.");
 			}
 			else if (program_state == 4)
 			{
-				showText(hwndEventLog, "Robot odtwarza nagrany ruch. Zaczekaj a¿ skoñczy pracê lub wciœnij RESET.");
+				showText(hwndEventLog, "Robot odtwarza nagrany ruch. Zaczekaj aÂ¿ skoÃ±czy pracÃª lub wciÂœnij RESET.");
 			}
 			break;
 		case ID_RESET:
@@ -1258,7 +1257,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 			}
 			else
 			{
-				showText(hwndEventLog, "Zaczekaj a¿ robot skoñczy wykonywan¹ pracê lub wciœnij RESET.");
+				showText(hwndEventLog, "Zaczekaj aÂ¿ robot skoÃ±czy wykonywanÂ¹ pracÃª lub wciÂœnij RESET.");
 			}
 			break;
 		case ID_ALPHA_MINUS:
@@ -1273,7 +1272,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 			}
 			else
 			{
-				showText(hwndEventLog, "Zaczekaj a¿ robot skoñczy wykonywan¹ pracê lub wciœnij RESET.");
+				showText(hwndEventLog, "Zaczekaj aÂ¿ robot skoÃ±czy wykonywanÂ¹ pracÃª lub wciÂœnij RESET.");
 			}
 			break;
 		case ID_STOP:
@@ -1284,7 +1283,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 			}
 			else
 			{
-				showText(hwndEventLog, "Zaczekaj a¿ robot skoñczy wykonywan¹ pracê lub wciœnij RESET.");
+				showText(hwndEventLog, "Zaczekaj aÂ¿ robot skoÃ±czy wykonywanÂ¹ pracÃª lub wciÂœnij RESET.");
 			}
 			break;
 		case ID_BETA_PLUS:
@@ -1299,7 +1298,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 			}
 			else
 			{
-				showText(hwndEventLog, "Zaczekaj a¿ robot skoñczy wykonywan¹ pracê lub wciœnij RESET.");
+				showText(hwndEventLog, "Zaczekaj aÂ¿ robot skoÃ±czy wykonywanÂ¹ pracÃª lub wciÂœnij RESET.");
 			}
 			break;
 		case ID_ALPHA_PLUS:
@@ -1314,7 +1313,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 			}
 			else
 			{
-				showText(hwndEventLog, "Zaczekaj a¿ robot skoñczy wykonywan¹ pracê lub wciœnij RESET.");
+				showText(hwndEventLog, "Zaczekaj aÂ¿ robot skoÃ±czy wykonywanÂ¹ pracÃª lub wciÂœnij RESET.");
 			}
 			break;
 		case ID_GRAB_LOSE:
@@ -1323,13 +1322,13 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 				if (grabbed)
 				{
 					attach_detachBox(hWnd);
-					SetWindowText(hwndGrabLose, L"CHWYÆ");
+					SetWindowText(hwndGrabLose, L"CHWYÃ†");
 				}
 				else
 				{
 					if (distances[findClosest()] < grab_dist)
 					{
-						SetWindowText(hwndGrabLose, L"PUŒÆ");
+						SetWindowText(hwndGrabLose, L"PUÂŒÃ†");
 						attach_detachBox(hWnd);
 						moveBox();
 						repaintWindow(hWnd, hdc, ps, &actionArea);
@@ -1347,7 +1346,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 			}
 			else
 			{
-				showText(hwndEventLog, "Nie mo¿na zmieniaæ wag w trakcie sortowania.");
+				showText(hwndEventLog, "Nie moÂ¿na zmieniaÃ¦ wag w trakcie sortowania.");
 			}
 			break;
 		case ID_YELLOW_MINUS:
@@ -1360,7 +1359,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 			}
 			else
 			{
-				showText(hwndEventLog, "Nie mo¿na zmieniaæ wag w trakcie sortowania.");
+				showText(hwndEventLog, "Nie moÂ¿na zmieniaÃ¦ wag w trakcie sortowania.");
 			}
 			break;
 		case ID_GREEN_PLUS:
@@ -1373,7 +1372,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 			}
 			else
 			{
-				showText(hwndEventLog, "Nie mo¿na zmieniaæ wag w trakcie sortowania.");
+				showText(hwndEventLog, "Nie moÂ¿na zmieniaÃ¦ wag w trakcie sortowania.");
 			}
 			break;
 		case ID_GREEN_MINUS:
@@ -1386,7 +1385,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 			}
 			else
 			{
-				showText(hwndEventLog, "Nie mo¿na zmieniaæ wag w trakcie sortowania.");
+				showText(hwndEventLog, "Nie moÂ¿na zmieniaÃ¦ wag w trakcie sortowania.");
 			}
 			break;
 		case ID_BLUE_PLUS:
@@ -1399,7 +1398,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 			}
 			else
 			{
-				showText(hwndEventLog, "Nie mo¿na zmieniaæ wag w trakcie sortowania.");
+				showText(hwndEventLog, "Nie moÂ¿na zmieniaÃ¦ wag w trakcie sortowania.");
 			}
 			break;
 		case ID_BLUE_MINUS:
@@ -1412,7 +1411,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 			}
 			else
 			{
-				showText(hwndEventLog, "Nie mo¿na zmieniaæ wag w trakcie sortowania.");
+				showText(hwndEventLog, "Nie moÂ¿na zmieniaÃ¦ wag w trakcie sortowania.");
 			}
 			break;
 		case ID_RED_PLUS:
@@ -1425,7 +1424,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 			}
 			else
 			{
-				showText(hwndEventLog, "Nie mo¿na zmieniaæ wag w trakcie sortowania.");
+				showText(hwndEventLog, "Nie moÂ¿na zmieniaÃ¦ wag w trakcie sortowania.");
 			}
 			break;
 		case ID_RED_MINUS:
@@ -1438,7 +1437,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 			}
 			else
 			{
-				showText(hwndEventLog, "Nie mo¿na zmieniaæ wag w trakcie sortowania.");
+				showText(hwndEventLog, "Nie moÂ¿na zmieniaÃ¦ wag w trakcie sortowania.");
 			}
 			break;
 		default:
@@ -1574,7 +1573,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 			{
 				KillTimer(hWnd, TMR_4);
 				program_state = 0;
-				showText(hwndEventLog, "Zakoñczono odtwarzanie.");
+				showText(hwndEventLog, "ZakoÃ±czono odtwarzanie.");
 			}
 			break;
 		}
